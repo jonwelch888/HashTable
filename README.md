@@ -25,12 +25,7 @@ This assignment involves creating a Hash Table class that uses separate chaining
 - Ensure the program handles invalid IDs and empty data appropriately.
 - Include robust testing in `main.cpp` to demonstrate all functionalities of the hash table.
 
-## Setup
-1. Clone the repository or download the files.
-2. Ensure you have a C++ compiler installed (e.g., `g++`).
-3. Compile the program using the following command:
-   ```sh
-   g++ -o out hashtable.cpp linkedlist.cpp main.cpp
+
 
 ## Author 
 Jon Welch
