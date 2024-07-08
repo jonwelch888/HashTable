@@ -15,6 +15,7 @@ and constants used in main.cpp for testing the HashTable class.
 #include <stdlib.h>     /* srand, rand */
 #include <time.h>       /* time */
 #include <string>       /* string */
+#include "hashtable.h"
 
 #define BUFFERSIZE 8
 #define MAXID 100
