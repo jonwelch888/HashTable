@@ -69,6 +69,7 @@ std::string HashTable::getData(int id)
     std::string result;
     Data data;
     int index = hash(id);
+    std::cout << "HashTable::getData - Looking for ID " << id << " at index " << index << std::endl;
     if (table[index].getNode(id, &data))
     {
         result = data.data;
