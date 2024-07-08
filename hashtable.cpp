@@ -66,11 +66,15 @@ bool HashTable::insertEntry(int id, std::string* data)
     if (id > 0 && !data->empty())
     {
         int index = hash(id);
-        if (table[index].addNode(id, data))
+        if (index >= 0 && table[index].addNode(id, data))
         {
             count++;
             success = true;
         }
+    }
+    else
+    {
+        std::cerr << "Error: Invalid ID or empty data" << std::endl;
     }
     return success;
 }
@@ -83,16 +87,21 @@ std::string HashTable::getData(int id)
     @return The data string if found, otherwise an empty string.
     ************************************* */
     std::string result;
-    Data data;
-    int index = hash(id);
-    std::cout << "HashTable::getData - Looking for ID " << id << " at index " << index << std::endl;
-    if (table[index].getNode(id, &data))
+    if (id > 0)
     {
-        result = data.data;
+        int index = hash(id);
+        if (index >= 0)
+        {
+            Data data;
+            if (table[index].getNode(id, &data))
+            {
+                result = data.data;
+            }
+        }
     }
     else
     {
-        result = "";
+        std::cerr << "Error: Invalid ID" << std::endl;
     }
     return result;
 }
@@ -105,14 +114,18 @@ bool HashTable::removeEntry(int id)
     @return true if the removal was successful, false otherwise.
     ************************************* */
     bool success = false;
-    int index = hash(id);
-    std::cout << "Attempting to remove ID " << id << " from index " << index << std::endl;
-    if (table[index].deleteNode(id)) {
-        count--;
-        success = true;
-        std::cout << "Removed ID " << id << " from index " << index << std::endl;
-    } else {
-        std::cout << "Failed to remove ID " << id << " from index " << index << std::endl;
+    if (id > 0)
+    {
+        int index = hash(id);
+        if (index >= 0 && table[index].deleteNode(id))
+        {
+            count--;
+            success = true;
+        }
+    }
+    else
+    {
+        std::cerr << "Error: Invalid ID" << std::endl;
     }
     return success;
 }
