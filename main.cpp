@@ -101,18 +101,19 @@ int main()
 
     // Demonstrate removal of data
     cout << "Removing entries from hash table:" << endl;
-    for (int i = 0; i < testdatasize; i++)
+for (int i = 0; i < (testdatasize); i++)
+{
+    cout << "Attempting to remove ID " << ids[i] << "..." << endl;
+    if (ht.removeEntry(ids[i]))
     {
-        if (ht.removeEntry(ids[i]))
-        {
-            cout << "Removed: ID " << ids[i] << endl;
-        }
-        else
-        {
-            cout << "Failed to remove: ID " << ids[i] << endl;
-        }
+        cout << "Removed: ID " << ids[i] << endl;
     }
-    cout << endl;
+    else
+    {
+        cout << "Failed to remove: ID " << ids[i] << endl;
+    }
+}
+cout << endl;
 
     // Show the state of the hash table after removal
     cout << "Hash table after removal:" << endl;
