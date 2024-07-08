@@ -19,8 +19,6 @@ as well as printing the list and checking for the existence of a node.
 #include <iostream>
 using std::string;
 
-// Define the debug flag
-constexpr bool DEBUG = true; // Set to false to disable debug prints
 
 class LinkedList
 {
