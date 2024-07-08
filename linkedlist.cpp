@@ -295,19 +295,25 @@ void LinkedList::deleteNode(Node* node)
     deleteNode: Deletes the specified node from the list.
     @param node The node to delete.
     ************************************* */
+    std::cout << "Deleting node with id: " << node->data.id << std::endl;
     if (node->prev)
     {
         node->prev->next = node->next;
+        std::cout << "Updated prev node's next pointer." << std::endl;
     }
     else
     {
         head = node->next;
+        std::cout << "Updated head to next node." << std::endl;
     }
     if (node->next)
     {
         node->next->prev = node->prev;
+        std::cout << "Updated next node's prev pointer." << std::endl;
     }
     delete node;
+    std::cout << "Node deleted." << std::endl;
+    
 }
 
 
