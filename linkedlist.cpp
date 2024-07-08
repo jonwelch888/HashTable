@@ -103,8 +103,13 @@ bool LinkedList::deleteNode(int id)
 
     if (toDelete)
     {
+        std::cout << "Found node with ID " << id << " for deletion." << std::endl;
         deleteNode(toDelete);
         success = true;
+    }
+    else
+    {
+        std::cout << "Node with ID " << id << " not found for deletion." << std::endl;
     }
 
     return success;
