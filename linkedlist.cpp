@@ -317,7 +317,7 @@ void LinkedList::deleteNode(Node* node)
         std::cout << "Updated next node's prev pointer." << std::endl;
     }
     delete node;
-    std::cout << "Node deleted." << std::endl;
+    std::cout << "Node with ID " << node->data.id << " deleted." << std::endl;
     
 }
 
