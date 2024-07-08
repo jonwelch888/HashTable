@@ -89,10 +89,13 @@ bool HashTable::removeEntry(int id)
     ************************************* */
     bool success = false;
     int index = hash(id);
-    if (table[index].deleteNode(id))
-    {
+    std::cout << "Attempting to remove ID " << id << " from index " << index << std::endl;
+    if (table[index].deleteNode(id)) {
         count--;
         success = true;
+        std::cout << "Removed ID " << id << " from index " << index << std::endl;
+    } else {
+        std::cout << "Failed to remove ID " << id << " from index " << index << std::endl;
     }
     return success;
 }
