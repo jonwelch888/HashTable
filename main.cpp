@@ -136,5 +136,42 @@ cout << endl;
     ht.printTable();
     cout << "Stress test completed." << endl;
 
+
+    // Adding extra test cases for robustness.. 
+    cout << "Checking repeated insertion and removal..." << endl;
+    int repeatId = (12345);
+    string repeatData = "repeatedEntry";
+    for (int i = 0; i < (5); i++)
+    {
+        if (ht.insertEntry(repeatId, &repeatData))
+        {
+            cout << "Inserted: ID " << repeatId << " -> " << repeatData << endl;
+        }
+        string data = ht.getData(repeatId);
+        if (!data.empty())
+        {
+            cout << "Retrieved: ID " << repeatId << " -> " << data << endl;
+        }
+        if (ht.removeEntry(repeatId))
+        {
+            cout << "Removed: ID " << repeatId << endl;
+        }
+    }
+    cout << endl;
+
+    // Edge cases: Very large IDs
+    cout << "Inserting very large IDs..." << endl;
+    int largeId1 = (1000000001);
+    int largeId2 = (2000000002);
+    string largeData1 = "largeEntry1";
+    string largeData2 = "largeEntry2";
+    ht.insertEntry(largeId1, &largeData1);
+    ht.insertEntry(largeId2, &largeData2);
+    ht.printTable();
+    ht.removeEntry(largeId1);
+    ht.removeEntry(largeId2);
+    ht.printTable();
+    cout << "Very large IDs test completed." << endl;
+    
     return 0;
 }
