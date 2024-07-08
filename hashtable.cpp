@@ -34,7 +34,7 @@ int HashTable::hash(int id)
     @param id The identifier to hash.
     @return The hash value.
     ************************************* */
-    return id % (HASHTABLESIZE);
+    return id % HASHTABLESIZE;
     // Returning the remainder, [(25%7)=(4)] => [(25/7)=(3)] => [(7*3)=(21)] => [(25-21)=(4)=(remainder)];
 }
 
