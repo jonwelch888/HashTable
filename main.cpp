@@ -101,7 +101,7 @@ int main()
 
     // Demonstrate removal of data
     cout << "Removing entries from hash table:" << endl;
-    for (int i = 0; i < (testdatasize); i++)
+    for (int i = 0; i < testdatasize; i++)
     {
         if (ht.removeEntry(ids[i]))
         {
@@ -119,6 +119,21 @@ int main()
     cout << "Entry count: " << ht.getCount() << endl;
     ht.printTable();
     cout << endl;
+
+    // Edge case: Try inserting and removing more entries than the table can handle
+    cout << "Stress testing the hash table..." << endl;
+    for (int i = 0; i < (HASHTABLESIZE * 2); i++)
+    {
+        string data = "stress" + std::to_string(i);
+        ht.insertEntry(i + 101, &data);
+    }
+    ht.printTable();
+    for (int i = 0; i < (HASHTABLESIZE * 2); i++)
+    {
+        ht.removeEntry(i + 101);
+    }
+    ht.printTable();
+    cout << "Stress test completed." << endl;
 
     return 0;
 }
