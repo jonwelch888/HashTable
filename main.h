@@ -1,6 +1,12 @@
-/* 
- * your comment header here
- */
+
+/* **************************************
+Name: Jon Welch
+Assignment: 7
+Purpose of the file: This header file contains necessary includes, definitions, 
+and constants used in main.cpp for testing the HashTable class.
+
+@note This file is associated with main.cpp.
+*************************************** */
 
 #ifndef MAIN_H
 #define MAIN_H
