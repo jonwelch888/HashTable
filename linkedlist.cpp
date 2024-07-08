@@ -124,6 +124,7 @@ bool LinkedList::getNode(int id, Data* data)
     ************************************* */
     bool found = false;
     Node* current = head;
+    std::cout << "LinkedList::getNode - Looking for ID " << id << std::endl;
 
     while (current && !found)
     {
@@ -132,6 +133,7 @@ bool LinkedList::getNode(int id, Data* data)
             data->id = current->data.id;
             data->data = current->data.data;
             found = true;
+            std::cout << "LinkedList::getNode - Found ID " << id << std::endl;
         }
         else
         {
@@ -143,6 +145,7 @@ bool LinkedList::getNode(int id, Data* data)
     {
         data->id = -1;
         data->data = "";
+        std::cout << "LinkedList::getNode - ID " << id << " not found" << std::endl;
     }
 
     return found;
