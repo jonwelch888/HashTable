@@ -6,7 +6,7 @@ which uses separate chaining to handle collisions. It supports operations
 such as inserting, deleting, and retrieving entries, as well as printing the table 
 and checking the number of entries.
 
-@note file is associated with [hashtable.cpp];
+@note file is associated with [hashtable.cpp] & [linkedlist.h];
 *************************************** */
 
 #ifndef HASHTABLE_H
