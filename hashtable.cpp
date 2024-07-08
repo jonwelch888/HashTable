@@ -35,7 +35,7 @@ int HashTable::hash(int id)
     @return The hash value.
     ************************************* */
     int result; 
-    bool vaild = true; 
+    bool valid = true; 
     if (id<0)
     {
         std::cerr<<"Error: ID cannot be negative"<<std::endl;
