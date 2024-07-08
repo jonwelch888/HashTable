@@ -34,8 +34,24 @@ int HashTable::hash(int id)
     @param id The identifier to hash.
     @return The hash value.
     ************************************* */
-    return id % HASHTABLESIZE;
-    // Returning the remainder, [(25%7)=(4)] => [(25/7)=(3)] => [(7*3)=(21)] => [(25-21)=(4)=(remainder)];
+    int result; 
+    bool vaild = true; 
+    if (id<0)
+    {
+        std::cerr<<"Error: ID cannot be negative"<<std::endl;
+        valid = false;
+    }
+    if (valid)
+    {
+        result = id % HASHTABLESIZE; 
+        //Returning the remainder, [(25%7)=(4)] => [(25/7)=(3)] => [(7*3)=(21)] => [(25-21)=(4)=(remainder)];
+    }
+    else
+    {
+        result = -1;
+    }
+    return result; 
+
 }
 
 bool HashTable::insertEntry(int id, std::string* data)
