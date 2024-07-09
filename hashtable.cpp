@@ -32,18 +32,7 @@ int HashTable::hash(int id)
     @param id : The identifier to hash.
     @return : The hash value.
     ************************************* */
-    int result; 
-    bool valid = true; 
-    if (valid)
-    {
-        result = id % HASHTABLESIZE; 
-    }
-    else
-    {
-        result = -1;
-    }
-    return result; 
-
+    return id % HASHTABLESIZE; 
 }
 
 bool HashTable::insertEntry(int id, std::string* data)
