@@ -9,7 +9,7 @@
 #ifndef DATA_H
 #define DATA_H
 
-#include "string"
+#include <string>
 using std::string;
 
 struct Data
