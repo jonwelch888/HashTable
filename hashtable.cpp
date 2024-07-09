@@ -33,7 +33,7 @@ int HashTable::hash(int id)
     @return : The hash value, or -1 if the id is negative.
     ************************************* */
     // Trying to trobleshoot why I keep running into [ zsh: segmentation fault ];
-    return (id >= 0) ? id % HASHTABLESIZE : -1;
+    return id % HASHTABLESIZE;
 }
 
 bool HashTable::insertEntry(int id, std::string* data)
