@@ -22,6 +22,7 @@ class HashTable
     for collision resolution. It allows adding, deleting, retrieving, 
     and printing entries, as well as checking the number of entries 
     in the table.
+    
     int hash(int id); Generates the hash for a given id
     @attrib table: an array of linked lists representing the hash table
     @attrib count: the number of entries in the hash table
