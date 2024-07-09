@@ -45,7 +45,10 @@ bool HashTable::insertEntry(int id, std::string* data)
     ************************************* */
     int index = hash(id);
     bool success = table[index].addNode(id, data);
-    if (success) count++;
+    if (success)
+    {
+        count++;
+    }
     return success;
 }
 
@@ -71,7 +74,10 @@ bool HashTable::removeEntry(int id)
     ************************************* */
     int index = hash(id);
     bool success = table[index].deleteNode(id);
-    if (success) count--;
+    if (success)
+    {
+        count--;
+    }
     return success;
 }
 
