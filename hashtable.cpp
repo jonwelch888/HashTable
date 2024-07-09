@@ -33,16 +33,7 @@ int HashTable::hash(int id)
     @return : The hash value.
     ************************************* */
     // Trying to trobleshoot why I keep running into [ zsh: segmentation fault ];
-    int result = -1;
-    if (id >= 0)
-    {
-        result = id % HASHTABLESIZE;
-    }
-    else
-    {
-        std::cerr << "Error: ID cannot be negative" << std::endl;
-    }
-    return result;
+    return (id >= 0) ? id % HASHTABLESIZE : -1;
 }
 
 bool HashTable::insertEntry(int id, std::string* data)
@@ -54,11 +45,8 @@ bool HashTable::insertEntry(int id, std::string* data)
     @return : true if the insertion was successful, false otherwise.
     ************************************* */
     int index = hash(id);
-    bool success = table[index].addNode(id, data);
-    if (success)
-    {
-        count++;
-    }
+    bool success = (index != -1) && table[index].addNode(id, data);
+    count += success ? 1 : 0;
     return success;
 }
 
@@ -71,7 +59,7 @@ std::string HashTable::getData(int id)
     ************************************* */
     int index = hash(id);
     Data data;
-    bool found = table[index].getNode(id, &data);
+    bool found = (index != -1) && table[index].getNode(id, &data);
     return found ? data.data : "";
 }
 
@@ -83,11 +71,8 @@ bool HashTable::removeEntry(int id)
     @return : true if the removal was successful, false otherwise.
     ************************************* */
     int index = hash(id);
-    bool success = table[index].deleteNode(id);
-    if (success)
-    {
-        count--;
-    }
+    bool success = (index != -1) && table[index].deleteNode(id);
+    count -= success ? 1 : 0;
     return success;
 }
 
