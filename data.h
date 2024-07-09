@@ -12,12 +12,30 @@
 #include "string"
 using std::string;
 
-struct Data {
+struct Data
+{
+    /*********************************************
+    This structure defines a Data object that holds an integer ID 
+    and a string data.
+
+    @attrib id : the identifier for the data
+    @attrib data : the string data
+    *********************************************/
     int id;
     string data;
 };
 
-struct Node {
+struct Node
+{
+    /*********************************************
+    This structure defines a Node used in the doubly linked list.
+    Each node contains a Data object and pointers to the next 
+    and previous nodes in the list.
+
+    @attrib data : the Data object stored in the node
+    @attrib next : pointer to the next node in the list
+    @attrib prev : pointer to the previous node in the list
+    *********************************************/
     Data data;
     Node *next;
     Node *prev;
