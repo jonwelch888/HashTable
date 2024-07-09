@@ -1,19 +1,19 @@
-/* **************************************
-Name: Jon Welch
-Assignment: 7
-Purpose of the file: This source file contains the implementation of the LinkedList class.
-It handles dynamic memory allocation and supports operations such as adding, deleting, 
-retrieving, printing, and checking nodes in a doubly linked list.
+/***************************************
+* Name: Jon Welch
+* Assignment: 7
+* Purpose of the file: This source file contains the implementation of the LinkedList class.
+* It handles dynamic memory allocation and supports operations such as adding, deleting, 
+* retrieving, printing, and checking nodes in a doubly linked list.
 
-@note This file is associated with linkedlist.h.
-*************************************** */
+* @note This file is associated with linkedlist.h.
+****************************************/
 
 
 #include "linkedlist.h"
 
 LinkedList::LinkedList() : head(nullptr)
 {
-    /* *************************************
+    /**************************************
     Constructor: Initializes the linked list with the head pointer set to nullptr.
     ************************************* */
 }
@@ -30,8 +30,8 @@ bool LinkedList::addNode(int id, string* data)
 {
     /* *************************************
     addNode: Adds a new node with the given id and data to the list in ascending order.
-    @param id The identifier for the Data.
-    @param data A pointer to the string data.
+    @param id : The identifier for the Data.
+    @param data : A pointer to the string data.
     ************************************* */
     bool success = false;
 
@@ -103,15 +103,10 @@ bool LinkedList::deleteNode(int id)
 
     if (toDelete)
     {
-        std::cout << "Found node with ID " << id << " for deletion." << std::endl;
+        
         deleteNode(toDelete);
         success = true;
     }
-    else
-    {
-        std::cout << "Node with ID " << id << " not found for deletion." << std::endl;
-    }
-
     return success;
 }
 
@@ -124,7 +119,6 @@ bool LinkedList::getNode(int id, Data* data)
     ************************************* */
     bool found = false;
     Node* current = head;
-    std::cout << "LinkedList::getNode - Looking for ID " << id << std::endl;
 
     while (current && !found)
     {
@@ -133,7 +127,6 @@ bool LinkedList::getNode(int id, Data* data)
             data->id = current->data.id;
             data->data = current->data.data;
             found = true;
-            std::cout << "LinkedList::getNode - Found ID " << id << std::endl;
         }
         else
         {
@@ -145,7 +138,6 @@ bool LinkedList::getNode(int id, Data* data)
     {
         data->id = -1;
         data->data = "";
-        std::cout << "LinkedList::getNode - ID " << id << " not found" << std::endl;
     }
 
     return found;
@@ -303,24 +295,19 @@ void LinkedList::deleteNode(Node* node)
     deleteNode: Deletes the specified node from the list.
     @param node The node to delete.
     ************************************* */
-    std::cout << "Deleting node with id: " << node->data.id << std::endl;
     if (node->prev)
     {
         node->prev->next = node->next;
-        std::cout << "Updated prev node's next pointer." << std::endl;
     }
     else
     {
         head = node->next;
-        std::cout << "Updated head to next node." << std::endl;
     }
     if (node->next)
     {
         node->next->prev = node->prev;
-        std::cout << "Updated next node's prev pointer." << std::endl;
     }
     delete node;
-    std::cout << "Node with ID " << node->data.id << " deleted." << std::endl;
     
 }
 
