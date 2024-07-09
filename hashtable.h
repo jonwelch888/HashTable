@@ -12,6 +12,7 @@
 #define HASHTABLE_H
 
 #include "linkedlist.h"
+#include <iostream>
 #define HASHTABLESIZE 15
 
 class HashTable
