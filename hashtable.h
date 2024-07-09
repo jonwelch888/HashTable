@@ -21,20 +21,25 @@ class HashTable
     for collision resolution. It allows adding, deleting, retrieving, 
     and printing entries, as well as checking the number of entries 
     in the table.
-
+    int hash(int id); Generates the hash for a given id
     @attrib table: an array of linked lists representing the hash table
     @attrib count: the number of entries in the hash table
-    *********************************************/ 
+    *********************************************/
+
+    private:
+    int hash(int id); 
+    LinkedList table[HASHTABLESIZE];  
+    int count; 
 
     public:
     /**************************************
-    Constructor and Destructor
+    Constructor/Destructor
     **************************************/
     HashTable(); 
     ~HashTable();  
 
     /**********************
-     Getters/Accessors
+    Getters/Accessors
     **********************/
     bool insertEntry(int id, std::string* data);  
     std::string getData(int id);  
@@ -42,16 +47,6 @@ class HashTable
     int getCount();  
     void printTable();  
 
-    private:
-    /********************************************
-    Private methods:
-    int hash(int id); Generates the hash for a given id
-    LinkedList table[HASHTABLESIZE]; Array of linked lists
-    **********************************************/
-    int hash(int id); 
-
-    LinkedList table[HASHTABLESIZE];  
-    int count; 
 };
 
 #endif // HASHTABLE_H
