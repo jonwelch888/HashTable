@@ -32,7 +32,17 @@ int HashTable::hash(int id)
     @param id : The identifier to hash.
     @return : The hash value.
     ************************************* */
-    return id % HASHTABLESIZE; 
+    // Trying to trobleshoot why I keep running into [ zsh: segmentation fault ];
+    int result = -1;
+    if (id >= 0)
+    {
+        result = id % HASHTABLESIZE;
+    }
+    else
+    {
+        std::cerr << "Error: ID cannot be negative" << std::endl;
+    }
+    return result;
 }
 
 bool HashTable::insertEntry(int id, std::string* data)
