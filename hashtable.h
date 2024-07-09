@@ -1,6 +1,3 @@
-
-
-
 /**************************
 * Name: Jon Welch
 * Assignment: 7
