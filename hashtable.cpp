@@ -5,7 +5,7 @@
 * It uses separate chaining to handle collisions and supports operations 
 * such as inserting, deleting, and retrieving entries, as well as printing the table 
 * and checking the number of entries.
-
+*
 * @note This file is associated with [hashtable.h];
 *************************************** */
 
@@ -30,7 +30,7 @@ int HashTable::hash(int id)
     /* *************************************
     hash: Generates the hash for a given id using modulo operation.
     @param id : The identifier to hash.
-    @return : The hash value.
+    @return : The hash value, or -1 if the id is negative.
     ************************************* */
     // Trying to trobleshoot why I keep running into [ zsh: segmentation fault ];
     return (id >= 0) ? id % HASHTABLESIZE : -1;
