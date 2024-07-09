@@ -11,6 +11,22 @@
 
 int main()
 {
+    /*********************************************
+    The main function serves as a driver for testing the HashTable class. 
+    It performs the following operations:
+    1. Generates test data with random IDs and corresponding strings.
+    2. Inserts the test data into the hash table.
+    3. Prints the hash table to show its contents.
+    4. Retrieves and displays data from the hash table.
+    5. Removes entries from the hash table and shows the updated table.
+    6. Performs stress tests by inserting and removing more entries than the table can handle.
+    7. Repeatedly inserts and removes a specific entry to ensure robustness.
+    8. Tests edge cases with very large IDs.
+
+    @return 0 : Indicates successful execution of the program.
+    *********************************************/
+
+    
     //seed the rand function
     srand(time(NULL));
 
