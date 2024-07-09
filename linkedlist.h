@@ -1,12 +1,12 @@
 /* **************************************
-Name: Jon Welch
-Assignment: 7
-Purpose of the file: This header file declares the LinkedList class,
-which implements a doubly linked list of Data objects. 
-It supports operations such as adding, deleting, and retrieving nodes, 
-as well as printing the list and checking for the existence of a node.
-
-@note file is associated with linkedlist.cpp.
+* Name: Jon Welch
+* Assignment: 7
+* Purpose of the file: This header file declares the LinkedList class,
+* which implements a doubly linked list of Data objects. 
+* It supports operations such as adding, deleting, and retrieving nodes, 
+* as well as printing the list and checking for the existence of a node.
+*
+* @note file is associated with linkedlist.cpp.
 *************************************** */
 
 
