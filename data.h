@@ -1,10 +1,10 @@
-/* 
- * File: data.h
- * Author: Alex Katrompas
- * 
- * DO NOT MODIFY THIS FILE
- * LEAVE THIS COMMENT HEADER HERE
- */
+/**************************
+* Name: Jon Welch
+* Assignment: 7
+* Purpose of the file: This header file defines the Data and Node structures used in the HashTable class.
+* The Data structure contains an id and a string, while the Node structure is used for the doubly linked list,
+* containing a Data object and pointers to the next and previous nodes.
+***************************/
 
 #ifndef DATA_H
 #define DATA_H
