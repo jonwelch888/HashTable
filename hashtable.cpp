@@ -30,7 +30,7 @@ int HashTable::hash(int id)
     /* *************************************
     hash: Generates the hash for a given id using modulo operation.
     @param id : The identifier to hash.
-    @return : The hash value, or -1 if the id is negative.
+    @return : The hash value.
     ************************************* */
     // Trying to trobleshoot why I keep running into [ zsh: segmentation fault ];
     return id % HASHTABLESIZE;
