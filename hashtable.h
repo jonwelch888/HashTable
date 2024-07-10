@@ -42,6 +42,11 @@ class HashTable
 
     /**********************
     Getters/Accessors
+    bool insertEntry(int id, std::string* data);  Inserts a new entry with the given id and data
+    std::string getData(int id); Retrieves the data for the given id
+    bool removeEntry(int id); Removes the entry with the specified id
+    int getCount(); Returns the count of entries in the hash table
+    void printTable(); Prints the entire hash table
     **********************/
     bool insertEntry(int id, std::string* data);  
     std::string getData(int id);  
