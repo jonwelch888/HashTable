@@ -58,7 +58,7 @@ std::string HashTable::getData(int id)
     ************************************* */
     int index = hash(id);
     Data data;
-    bool found = table[index].getNode(id, &data);
+    bool found = (index != -1) && table[index].getNode(id, &data); // Ran into segmentation error again, trying to troubleshoot
     return found ? data.data : "";
 }
 
