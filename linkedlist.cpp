@@ -92,7 +92,7 @@ bool LinkedList::deleteNode(int id)
     @param id The identifier for the node to delete.
     ************************************* */
     bool success = false;
-    if(id>0)
+    if (id > 0)
     {
         Node* current = head;
         Node* toDelete = nullptr;
@@ -113,7 +113,7 @@ bool LinkedList::deleteNode(int id)
             success = true;
         }
     }
-        return success;
+    return success;
 }
 
 bool LinkedList::getNode(int id, Data* data)
@@ -125,10 +125,9 @@ bool LinkedList::getNode(int id, Data* data)
     ************************************* */
     bool found = false;
     // Trying to catch values less that 0;
-    if (id>0)
+    if (id > 0)
     {
         Node* current = head;
-
         while (current && !found)
         {
             if (current->data.id == id)
@@ -148,7 +147,7 @@ bool LinkedList::getNode(int id, Data* data)
             data->id = -1;
             data->data = "";
         }
-    )
+    }
     return found;
 }
 
