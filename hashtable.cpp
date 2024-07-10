@@ -44,7 +44,8 @@ bool HashTable::insertEntry(int id, std::string* data)
     @return : true if the insertion was successful, false otherwise.
     ************************************* */
     int index = hash(id);
-    bool success = table[index].addNode(id, data); 
+    //Trying this one again 
+    bool success = (index != -1) && table[index].addNode(id, data); 
     count += success ? 1 : 0;
     return success;
 }
