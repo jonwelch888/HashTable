@@ -32,10 +32,16 @@ bool LinkedList::addNode(int id, string* data)
     addNode: Adds a new node with the given id and data to the list in ascending order.
     @param id : The identifier for the Data.
     @param data : A pointer to the string data.
+    @note : Attempting to update logic to catch [Error: ID cannot be negative zsh: segmentation fault];
     ************************************* */
-    bool success = false;
+    bool success = true;
 
-    if (id > 0 && !data->empty())
+    // If the ID is negative or the data is empty, set success to false
+    if (id <= 0 || data->empty())
+    {
+        success = false;
+    }
+    else
     {
         Node* current = head;
         Node* previous = nullptr;
@@ -47,8 +53,12 @@ bool LinkedList::addNode(int id, string* data)
             current = current->next;
         }
 
-        // Check if id already exists
-        if (!current || current->data.id != id)
+        // If id already exists, set success to false
+        if (current && current->data.id == id)
+        {
+            success = false;
+        }
+        else
         {
             // Now we know we need a new node
             Node* newNode = new Node;
@@ -70,14 +80,11 @@ bool LinkedList::addNode(int id, string* data)
             { // Inserting in the middle
                 addMiddle(newNode, previous);
             }
-
-            success = true;
         }
     }
 
     return success;
 }
-
 
 bool LinkedList::deleteNode(int id)
 {
