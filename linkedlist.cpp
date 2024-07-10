@@ -4,7 +4,7 @@
 * Purpose of the file: This source file contains the implementation of the LinkedList class.
 * It handles dynamic memory allocation and supports operations such as adding, deleting, 
 * retrieving, printing, and checking nodes in a doubly linked list.
-
+*
 * @note This file is associated with [linkedlist.h];
 ****************************************/
 
@@ -82,7 +82,6 @@ bool LinkedList::addNode(int id, string* data)
             }
         }
     }
-
     return success;
 }
 
@@ -107,10 +106,8 @@ bool LinkedList::deleteNode(int id)
             current = current->next;
         }
     }
-
     if (toDelete)
     {
-        
         deleteNode(toDelete);
         success = true;
     }
@@ -146,7 +143,6 @@ bool LinkedList::getNode(int id, Data* data)
         data->id = -1;
         data->data = "";
     }
-
     return found;
 }
 
@@ -157,7 +153,6 @@ void LinkedList::printList(bool backward)
     printList: Prints the list forward or backward based on the parameter.
     @param backward A boolean indicating the direction to print the list.
     ************************************* */
-    
     if (!head)
     {
         std::cout << "List is empty" << std::endl;
