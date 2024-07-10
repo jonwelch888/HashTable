@@ -44,8 +44,8 @@ bool HashTable::insertEntry(int id, std::string* data)
     @return : true if the insertion was successful, false otherwise.
     ************************************* */
     int index = hash(id);
-    //Trying this one again 
-    bool success = (index != -1) && table[index].addNode(id, data); 
+    //Going to update the logic within linkedlist.cpp and see if that solves this 
+    bool success = table[index].addNode(id, data); 
     count += success ? 1 : 0;
     return success;
 }
@@ -70,9 +70,8 @@ bool HashTable::removeEntry(int id)
     @param id : The identifier for the entry.
     @return : true if the removal was successful, false otherwise.
     ************************************* */
-    int index = hash(id);
-    // segmentation error went away once I added the (index != -1); 
-    bool success = (index != -1) && table[index].deleteNode(id); //Trying removeEntry; something going on in here 
+    int index = hash(id); 
+    bool success = table[index].deleteNode(id);
     count -= success ? 1 : 0;
     return success;
 }
