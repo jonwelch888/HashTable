@@ -5,7 +5,7 @@
 * It handles dynamic memory allocation and supports operations such as adding, deleting, 
 * retrieving, printing, and checking nodes in a doubly linked list.
 
-* @note This file is associated with linkedlist.h.
+* @note This file is associated with [linkedlist.h];
 ****************************************/
 
 
@@ -32,7 +32,7 @@ bool LinkedList::addNode(int id, string* data)
     addNode: Adds a new node with the given id and data to the list in ascending order.
     @param id : The identifier for the Data.
     @param data : A pointer to the string data.
-    @note : Attempting to update logic to catch [Error: ID cannot be negative zsh: segmentation fault];
+    @return : true if the new node was successfully inserted, false otherwise.
     ************************************* */
     bool success = true;
 
