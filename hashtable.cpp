@@ -44,7 +44,7 @@ bool HashTable::insertEntry(int id, std::string* data)
     @return : true if the insertion was successful, false otherwise.
     ************************************* */
     int index = hash(id);
-    bool success = (index != -1) && table[index].addNode(id, data); // Trying addNode();
+    bool success = table[index].addNode(id, data); 
     count += success ? 1 : 0;
     return success;
 }
@@ -58,7 +58,7 @@ std::string HashTable::getData(int id)
     ************************************* */
     int index = hash(id);
     Data data;
-    bool found = (index != -1) && table[index].getNode(id, &data); // Ran into segmentation error again, trying to troubleshoot
+    bool found = table[index].getNode(id, &data); 
     return found ? data.data : "";
 }
 
@@ -70,7 +70,8 @@ bool HashTable::removeEntry(int id)
     @return : true if the removal was successful, false otherwise.
     ************************************* */
     int index = hash(id);
-    bool success = (index != -1) && table[index].deleteNode(id); //Trying removeEntry
+    // segmentation error went away once I added the (index != -1); 
+    bool success = (index != -1) && table[index].deleteNode(id); //Trying removeEntry; something going on in here 
     count -= success ? 1 : 0;
     return success;
 }
