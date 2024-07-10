@@ -32,7 +32,6 @@ int HashTable::hash(int id)
     @param id : The identifier to hash.
     @return : The hash value.
     ************************************* */
-    // Trying to trobleshoot why I keep running into [ zsh: segmentation fault ];
     return id % HASHTABLESIZE;
 }
 
@@ -71,7 +70,7 @@ bool HashTable::removeEntry(int id)
     @return : true if the removal was successful, false otherwise.
     ************************************* */
     int index = hash(id);
-    bool success = (index != -1) && table[index].deleteNode(id);
+    bool success = table[index].deleteNode(id);
     count -= success ? 1 : 0;
     return success;
 }
