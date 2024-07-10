@@ -44,7 +44,6 @@ bool HashTable::insertEntry(int id, std::string* data)
     @return : true if the insertion was successful, false otherwise.
     ************************************* */
     int index = hash(id);
-    //Going to update the logic within linkedlist.cpp and see if that solves this 
     bool success = table[index].addNode(id, data); 
     count += success ? 1 : 0;
     return success;
