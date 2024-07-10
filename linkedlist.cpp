@@ -92,26 +92,28 @@ bool LinkedList::deleteNode(int id)
     @param id The identifier for the node to delete.
     ************************************* */
     bool success = false;
-    Node* current = head;
-    Node* toDelete = nullptr;
-
-    while (current && !toDelete)
+    if(id>0)
     {
-        if (current->data.id == id)
+        Node* current = head;
+        Node* toDelete = nullptr;
+        while (current && !toDelete)
         {
-            toDelete = current;
+            if (current->data.id == id)
+            {
+                toDelete = current;
+            }
+            else
+            {
+                current = current->next;
+            }
         }
-        else
+        if (toDelete)
         {
-            current = current->next;
+            deleteNode(toDelete);
+            success = true;
         }
     }
-    if (toDelete)
-    {
-        deleteNode(toDelete);
-        success = true;
-    }
-    return success;
+        return success;
 }
 
 bool LinkedList::getNode(int id, Data* data)
@@ -122,27 +124,31 @@ bool LinkedList::getNode(int id, Data* data)
     @param data A pointer to a Data object to store the retrieved data.
     ************************************* */
     bool found = false;
-    Node* current = head;
-
-    while (current && !found)
+    // Trying to catch values less that 0;
+    if (id>0)
     {
-        if (current->data.id == id)
-        {
-            data->id = current->data.id;
-            data->data = current->data.data;
-            found = true;
-        }
-        else
-        {
-            current = current->next;
-        }
-    }
+        Node* current = head;
 
-    if (!found)
-    {
-        data->id = -1;
-        data->data = "";
-    }
+        while (current && !found)
+        {
+            if (current->data.id == id)
+            {
+                data->id = current->data.id;
+                data->data = current->data.data;
+                found = true;
+            }
+            else
+            {
+                current = current->next;
+            }
+        }
+
+        if (!found)
+        {
+            data->id = -1;
+            data->data = "";
+        }
+    )
     return found;
 }
 
@@ -297,21 +303,47 @@ void LinkedList::deleteNode(Node* node)
     deleteNode: Deletes the specified node from the list.
     @param node The node to delete.
     ************************************* */
-    if (node->prev)
-    {
-        node->prev->next = node->next;
-    }
-    else
-    {
-        head = node->next;
-    }
-    if (node->next)
-    {
-        node->next->prev = node->prev;
-    }
-    delete node;
     
+    // Create a flag to indicate whether the node is valid
+    bool isValidNode = true;
+
+    // Check if the node pointer is nullptr
+    if (node == nullptr)
+    {
+        std::cout << "Error: Attempted to delete a null node." << std::endl;
+        isValidNode = false;
+    }
+
+    // Check if the node is in the list
+    if (isValidNode)
+    {
+        Node* current = head;
+        while (current != nullptr && current != node)
+        {
+            current = current->next;
+        }
+        if (current == nullptr)
+        {
+            std::cout << "Error: Attempted to delete a node that is not in the list." << std::endl;
+            isValidNode = false;
+        }
+    }
+
+    // If the node is valid, proceed with the deletion
+    if (isValidNode)
+    {
+        if (node->prev)
+        {
+            node->prev->next = node->next;
+        }
+        else
+        {
+            head = node->next;
+        }
+        if (node->next)
+        {
+            node->next->prev = node->prev;
+        }
+        delete node;
+    }
 }
-
-
-
